@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        function anagrams(inputA, inputB) {
+            /*Filter string and convert to lowercase */
+            inputA = inputA.replace(/[^\w]/g, '').toLowerCase();
+            inputB = inputB.replace(/[^\w]/g, '').toLowerCase();
+
+            return sortString(inputA) === sortString(inputB)
+        }
+
+        /*Shorting*/
+        function sortString(string) {
+            return string.split('').sort().join('');
+        }
+
+        function checkAnagram() {
+            var inputA = document.getElementById('inputA').value;
+            var inputB = document.getElementById('inputB').value;
+
+            if (anagrams(inputA, inputB)) {
+                alert('It\'s anagram');
+            }else{
+                alert('It\'s not anagram');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<h1>Anagram</h1>
+<div>
+    <input type="text" placeholder="Input A" id="inputA">
+    <input type="text" placeholder="Input B" id="inputB">
+    <input type="submit" onclick="checkAnagram()" value="Check Anagram">
+</div>
+<div id="anagramResult"></div>
+</body>
+</html>
